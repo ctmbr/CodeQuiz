@@ -10,8 +10,6 @@ header {
     color: hsl(206, 17%, 28%);
 }
 
-
-
 .question {
     margin: auto;
     display: flex;
@@ -29,4 +27,9 @@ header {
 
 .hidden {
     display: none;
+}
+
+.game-over {
+    font-size: 35px;
+    color: red;
 }
