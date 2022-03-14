@@ -6,6 +6,7 @@ var scoreEl = document.querySelector("#score")
 var timer
 var secondsRemaining = 10
 var currentQuestion = 0
+var scoreNumber = 0
 var questions = [
     {
         questionText: 'This is the first question',
@@ -34,9 +35,9 @@ function startGame(e) {
     console.log(e.target)
     startButton.classList.add("hidden")
     timerEl.innerText = secondsRemaining;
+    scoreEl.innerText = "Score = " + scoreNumber
     timerEl.classList.remove("hidden")
     questionEl.classList.remove("hidden")
-    scoreEl.innerText = "Score"
     timer = setInterval(function () {
         secondsRemaining--;
         timerEl.innerText = secondsRemaining;
@@ -68,6 +69,8 @@ function selectAnswer(button) {
 
     if (button.innerText === questions[currentQuestion].correctAnswer) {
         console.log('correct')
+        scoreNumber = scoreNumber + 10
+        scoreEl.innerText = "Score = " + scoreNumber
     } else (console.log('incorrect'))
 
     currentQuestion++
@@ -75,6 +78,7 @@ function selectAnswer(button) {
     if (currentQuestion >= questions.length) {
         endGame()
     } else questionDisplay()
+
 }
 
 function endGame() {
