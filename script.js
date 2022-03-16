@@ -3,8 +3,10 @@ var startButton = document.querySelector("#start")
 var timerEl = document.querySelector("#timer")
 var questionEl = document.querySelector("#question-list")
 var scoreEl = document.querySelector("#score")
+var initialsForm = document.querySelector("#initials-form")
+var submitScore = document.querySelector("#submit")
 var timer
-var secondsRemaining = 10
+var secondsRemaining = 60
 var currentQuestion = 0
 var scoreNumber = 0
 var questions = [
@@ -71,8 +73,9 @@ function selectAnswer(button) {
         console.log('correct')
         scoreNumber = scoreNumber + 10
         scoreEl.innerText = "Score = " + scoreNumber
-    } else (console.log('incorrect'))
-
+    } else (console.log('incorrect'),
+        secondsRemaining = secondsRemaining - 10
+    )
     currentQuestion++
 
     if (currentQuestion >= questions.length) {
@@ -86,4 +89,18 @@ function endGame() {
     timerEl.classList.add("game-over")
     timerEl.innerText = "GAME OVER!!"
     questionEl.classList.add("hidden")
+    initialsForm.classList.remove("hidden")
 }
+submitScore.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    var initials = document.querySelector("#initials").value;
+
+    if (initials === "") {
+        console.log("error, initials cannot be blank");
+    } else {
+        console.log("success", initials, "Registered successfully");
+
+        localStorage.setItem("initials", initials);
+    }
+});
