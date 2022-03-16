@@ -67,13 +67,16 @@ function questionDisplay() {
 }
 
 function selectAnswer(button) {
-    console.log(button.innerText)
+    var choice = button.innerText
+    var correctness = document.querySelector("#correctness")
 
-    if (button.innerText === questions[currentQuestion].correctAnswer) {
-        console.log('correct')
+    if (choice === questions[currentQuestion].correctAnswer) {
+        correctness.innerText = choice + ": correct"
+        correctness.classList.add("correct")
         scoreNumber = scoreNumber + 10
         scoreEl.innerText = "Score = " + scoreNumber
-    } else (console.log('incorrect'),
+    } else (correctness.innerText = choice + ": incorrect",
+        correctness.classList.add("incorrect"),
         secondsRemaining = secondsRemaining - 10
     )
     currentQuestion++
@@ -93,14 +96,17 @@ function endGame() {
 }
 submitScore.addEventListener("click", function (event) {
     event.preventDefault();
-
+    var enterScore = document.createElement("h3")
     var initials = document.querySelector("#initials").value;
 
     if (initials === "") {
-        console.log("error, initials cannot be blank");
+        enterScore.innerText = "error, initials cannot be blank";
+        enterScore.classList.add("incorrect")
+        initialsForm.append(enterScore)
     } else {
-        console.log("success", initials, "Registered successfully");
-
+        enterScore.innerText = "success", initials, "Registered successfully";
+        enterScore.classList.add("correct")
+        initialsForm.append(enterScore)
         localStorage.setItem("initials", initials);
     }
 });

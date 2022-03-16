@@ -29,6 +29,14 @@ header {
     display: none;
 }
 
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
 .game-over {
     font-size: 35px;
     color: red;
