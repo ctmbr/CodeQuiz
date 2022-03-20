@@ -59,7 +59,7 @@ function questionDisplay() {
     questions[currentQuestion].choices.forEach(function (choice) {
         var choiceLi = document.createElement("li")
         // choiceLi.innerText = choice
-        choiceLi.innerHTML = `<button onclick="selectAnswer(this)">${choice}</button>`
+        choiceLi.innerHTML = `<button id="choice" onclick="selectAnswer(this)">${choice}</button>`
         orderedList.append(choiceLi)
     })
 
@@ -100,11 +100,11 @@ submitScore.addEventListener("click", function (event) {
     var initials = document.querySelector("#initials").value;
 
     if (initials === "") {
-        enterScore.innerText = "error, initials cannot be blank";
+        enterScore.innerText = "ERROR: Initials cannot be blank";
         enterScore.classList.add("incorrect")
         initialsForm.append(enterScore)
     } else {
-        enterScore.innerText = "success", initials, "Registered successfully";
+        enterScore.innerText = "SUCCESS!! " + initials + ", Registered successfully!";
         enterScore.classList.add("correct")
         initialsForm.append(enterScore)
         localStorage.setItem("initials", initials);
