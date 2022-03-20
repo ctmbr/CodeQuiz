@@ -8,25 +8,32 @@ var submitScore = document.querySelector("#submit")
 var timer
 var secondsRemaining = 60
 var currentQuestion = 0
+// The following variable is intended to provide relevant text for each multiple choice. I was unsure how to do this and ran out of time
+// var answerText = [{
+//     A: ["A sister-language of JAVA", "Chrome", "With document.createElement and .append", "HTML"]
+// }, { B: ["A library of code snippets  that developers import for their own use", "Firefox", "using .src", "Javascript"] },
+// { C: ["An early predecessor of JSON", "Brave", "csa", "All of the above"] }, {
+//     D: ["A rare object", "both B & C", "This is impossible without third=party APIs", "CSS"]
+// }]
 var scoreNumber = 0
 var questions = [
     {
-        questionText: 'This is the first question',
+        questionText: 'What is Jquery?',
         choices: ['A', 'B', 'C', "D"],
         correctAnswer: 'B'
     },
     {
-        questionText: 'This is the second question',
+        questionText: 'Javascript Creator Brendan Eich was also involved in the development of which web browser?',
         choices: ['A', 'B', 'C', "D"],
         correctAnswer: 'D'
     },
     {
-        questionText: 'This is the third question',
+        questionText: 'How does one add HTML using Javascript?',
         choices: ['A', 'B', 'C', "D"],
         correctAnswer: 'A'
     },
     {
-        questionText: 'This is the fourth question',
+        questionText: 'Which languages run on web browsers?',
         choices: ['A', 'B', 'C', "D"],
         correctAnswer: 'C'
     },
