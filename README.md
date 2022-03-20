@@ -1,1 +1,3 @@
 # CodeQuiz
+
+A simple, timed quiz made with html, css, and Javascript. After pressing start, the timer starts from 60 seconds. it loops through 4 multi-choice 'questions' with 4 potential answers(A-B). A right answer adds 10 to the score. A wrong answer subtracts 10 seconds from the timer. When the quiz is finished or the timer reaches 0, it's game over. A form pops up for the user to type his/her initials and will submit score, after pressing the button. Pressing the button without typing will generate a red error message. Pressing the button with anything typed witll generate a message saying they have registered successfully.
